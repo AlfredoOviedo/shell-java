@@ -9,7 +9,6 @@ public class Main {
     System.out.print("$ ");
     String input = scanner.nextLine();
     if (input.equalsIgnoreCase("exit 0")) {
-      System.out.println("0");
       break;
     }       
       try {
