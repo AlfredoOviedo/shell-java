@@ -18,12 +18,12 @@ public class Main {
               for(String part : parts) {
                 if(!part.contains("echo")){
                   System.out.print(part + " ");
-                } 
+                }
               }
             } else {
-             System.out.println(input+ ": " + "command not found");  
+             System.out.print(input+ ": " + "command not found");  
             }
-            System.out.print("\n");
+            System.out.print("\n");            
           } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
       }
