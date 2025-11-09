@@ -12,10 +12,20 @@ public class Main {
       break;
     }       
       try {
-            System.out.println(input+ ": " + "command not found"); 
+            if (input.contains("echo")) {
+              String[] parts = input.split(" ");
+              
+              for(String part : parts) {
+                if(!part.contains("echo")){
+                  System.out.print(part + " ");
+                } 
+              }
+            } else {
+             System.out.println(input+ ": " + "command not found");  
+            }
+            System.out.print("\n");
           } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
-
       }
     }
     scanner.close();
