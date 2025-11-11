@@ -18,8 +18,9 @@ public class Main {
               for(String part : parts) {
              //   if(parts[0].equals("echo")){
                   if(!part.contains("echo")) {
-                   System.out.println(part + " "); 
+                   System.out.print(part + " "); 
                   }
+                  continue;
                // }
               }
             }else if(input.contains("type")) {
