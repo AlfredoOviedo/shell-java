@@ -16,14 +16,11 @@ public class Main {
             String[] parts = input.split(" ");
             if (parts[0].contains("echo")) {   
               for(String part : parts) {
-             //   if(parts[0].equals("echo")){
                   if(!part.contains("echo")) {
                    System.out.print(part + " "); 
                   }
-                  
-                   System.out.print("\n");
-               // }
               }
+            System.out.print("\n");
             }else if(input.contains("type")) {
               String command_paths = System.getenv("PATH");
               String[] path_command = command_paths.split(":");
