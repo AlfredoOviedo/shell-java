@@ -12,15 +12,24 @@ public class Main {
       break;
     }       
       try {
-            if (input.contains("echo")) {
-              String[] parts = input.split(" ");
-              
+            String[] parts = input.split(" ");
+            if (parts[0].contains("echo")) {   
               for(String part : parts) {
-                if(!part.contains("echo")){
-                  System.out.print(part + " ");
-                }
+             //   if(parts[0].equals("echo")){
+                  if(!part.contains("echo")) {
+                   System.out.print(part + " "); 
+                  }
+               // }
               }
-            } else {
+            }else if(input.contains("type")) {
+              String cmd = parts[1];
+                if(cmd.equals("type") || cmd.equals("echo") || cmd.equals("exit")) {
+                  System.out.print(cmd + " " + "is a shell builtin");
+                } else {
+                  System.out.print(cmd + ": not found");
+                }
+            }
+             else {
              System.out.print(input+ ": " + "command not found");  
             }
             System.out.print("\n");            
