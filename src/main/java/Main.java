@@ -49,7 +49,7 @@ public class Main {
              else {
              System.out.print(input+ ": " + "command not found");  
             }
-           // System.out.print("\n");            
+           System.out.print("\n");            
           } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
       }
