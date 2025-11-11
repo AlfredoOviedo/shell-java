@@ -27,7 +27,7 @@ public class Main {
               String[] path_command = command_paths.split(":");
               String cmd = parts[1];
                 if(cmd.equals("type") || cmd.equals("echo") || cmd.equals("exit")) {
-                  System.out.print(cmd + " " + "is a shell builtin");
+                  System.out.println(cmd + " " + "is a shell builtin");
                   continue;
                 }
 
