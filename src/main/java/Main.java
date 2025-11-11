@@ -20,7 +20,8 @@ public class Main {
                   if(!part.contains("echo")) {
                    System.out.print(part + " "); 
                   }
-                  continue;
+                  
+                   System.out.print("\n");
                // }
               }
             }else if(input.contains("type")) {
@@ -49,7 +50,7 @@ public class Main {
              else {
              System.out.print(input+ ": " + "command not found");  
             }
-           System.out.print("\n");            
+                     
           } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
       }
