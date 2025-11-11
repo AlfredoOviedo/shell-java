@@ -42,7 +42,7 @@ public class Main {
                   }
                 }
                 if (cmdExist == false) {
-                  System.out.print(cmd + ": not found");
+                  System.out.println(cmd + ": not found");
                   break;                   
                 }
             }
