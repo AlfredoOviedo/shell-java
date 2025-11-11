@@ -33,7 +33,7 @@ public class Main {
 
                 for (int i = 0; i < path_command.length; i++) {
                   File file = new File(path_command[i], cmd);
-                  if(file.exists()) {
+                  if(file.exists() && file.canExecute()) {
                     System.out.print(cmd + " is " + file.getAbsolutePath());
                     break;
                   }
