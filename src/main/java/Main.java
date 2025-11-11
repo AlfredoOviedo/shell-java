@@ -45,7 +45,7 @@ public class Main {
                 }
             }
              else {
-             System.out.print(input+ ": " + "command not found");  
+             System.out.println(input+ ": " + "command not found");  
             }
                      
           } catch (Exception e) {
