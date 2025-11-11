@@ -31,17 +31,20 @@ public class Main {
                   break;
                 }
 
+                boolean cmdExist = false;
+
                 for (int i = 0; i < path_command.length; i++) {
                   File file = new File(path_command[i], cmd);
                   if(file.exists() && file.canExecute()) {
                     System.out.print(cmd + " is " + file.getAbsolutePath());
+                    cmdExist = true;
                     break;
                   }
                 }
-
-                   System.out.print(cmd + ": not found");
-                   break;  
-                
+                if (cmdExist == false) {
+                  System.out.print(cmd + ": not found");
+                  break;                   
+                }
             }
              else {
              System.out.print(input+ ": " + "command not found");  
