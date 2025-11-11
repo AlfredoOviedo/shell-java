@@ -37,13 +37,12 @@ public class Main {
                   File file = new File(path_command[i], cmd);
                   if(file.exists() && file.canExecute()) {
                     System.out.println(cmd + " is " + file.getAbsolutePath());
-                    cmdExist = true;
-                    break;
+                    cmdExist = true; continue;
                   }
                 }
                 if (cmdExist == false) {
                   System.out.print(cmd + ": not found" + "\n");
-                  break;                   
+                  continue;                   
                 }
             }
              else {
