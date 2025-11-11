@@ -37,8 +37,11 @@ public class Main {
                     System.out.print(cmd + " is " + file.getAbsolutePath());
                     break;
                   }
-                 // System.out.print(cmd + ": not found");  
                 }
+
+                   System.out.print(cmd + ": not found");
+                   break;  
+                
             }
              else {
              System.out.print(input+ ": " + "command not found");  
