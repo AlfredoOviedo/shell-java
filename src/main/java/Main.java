@@ -36,9 +36,10 @@ public class Main {
                   if(file.exists()) {
                     System.out.println(cmd + " is " + file.getAbsolutePath());
                     break;
+                  }else {
+                  System.out.print(cmd + ": not found");  
                   }
                 }
-                  System.out.print(cmd + ": not found");
             }
              else {
              System.out.print(input+ ": " + "command not found");  
