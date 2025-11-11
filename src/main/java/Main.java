@@ -18,7 +18,7 @@ public class Main {
               for(String part : parts) {
              //   if(parts[0].equals("echo")){
                   if(!part.contains("echo")) {
-                   System.out.print(part + " "); 
+                   System.out.println(part + " "); 
                   }
                // }
               }
