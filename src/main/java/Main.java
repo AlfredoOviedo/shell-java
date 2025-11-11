@@ -28,7 +28,7 @@ public class Main {
               String cmd = parts[1];
                 if(cmd.equals("type") || cmd.equals("echo") || cmd.equals("exit")) {
                   System.out.print(cmd + " " + "is a shell builtin");
-                  break;
+                  continue;
                 }
 
                 boolean cmdExist = false;
