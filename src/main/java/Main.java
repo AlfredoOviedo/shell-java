@@ -29,25 +29,45 @@ public class Main {
                   System.out.println(cmd + " " + "is a shell builtin");
                   continue;
                 }
-
+                
                 boolean cmdExist = false;
 
                 for (int i = 0; i < path_command.length; i++) {
                   File file = new File(path_command[i], cmd);
                   if(file.exists() && file.canExecute()) {
                     System.out.println(cmd + " is " + file.getAbsolutePath());
-                    cmdExist = true; continue;
+                    cmdExist = true;
+                    continue;
                   }
                 }
                 if (cmdExist == false) {
                   System.out.print(cmd + ": not found" + "\n");
                   continue;                   
                 }
+            }else if(!input.isEmpty()){
+              String command_paths = System.getenv("PATH");
+              String[] path_command = command_paths.split(":");
+              String cmd = parts[0];
+
+              boolean cmdExist = false;
+
+                for (int i = 0; i < path_command.length; i++) {
+                  File file = new File(path_command[i], cmd);
+                  if(file.exists() && file.canExecute()) {
+
+                    Process process = Runtime.getRuntime().exec(parts);
+                    process.waitFor();
+                    
+                    cmdExist = true;
+                    continue;
+                  }
+                }              
             }
-             else {
+
+
+            else {
              System.out.println(input+ ": " + "command not found");  
             }
-                     
           } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
       }
