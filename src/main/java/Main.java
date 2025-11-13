@@ -29,7 +29,7 @@ public class Main {
                   System.out.println(cmd + " " + "is a shell builtin");
                   continue;
                 }
-                
+ 
                 boolean cmdExist = false;
 
                 for (int i = 0; i < path_command.length; i++) {
@@ -44,7 +44,14 @@ public class Main {
                   System.out.print(cmd + ": not found" + "\n");
                   continue;                   
                 }
-            }else if(!input.isEmpty()){
+            }else if(parts[0].contains("pwd")) {
+              String currentDir = System.getProperty("user.dir");
+              System.out.println(currentDir);
+              continue;
+            }
+
+
+            else if(!input.isEmpty()){
               String command_paths = System.getenv("PATH");
               String[] path_command = command_paths.split(":");
               String cmd = parts[0];
