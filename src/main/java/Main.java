@@ -61,13 +61,14 @@ public class Main {
                     
                     cmdExist = true;
                     continue;
-                  } else {
-                    
                   }
+
+                }
+                if (cmdExist == false) {
+                  System.out.print(cmd + ": not found" + "\n");
+                  continue;
                 }
             }
-
-
             else {
              System.out.println(input+ ": " + "command not found");  
             }
