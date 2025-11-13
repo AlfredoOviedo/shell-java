@@ -65,7 +65,6 @@ public class Main {
                     
                   }
                 }
-                System.out.print(cmd + ": not found" + "\n");          
             }
 
 
