@@ -56,7 +56,8 @@ public class Main {
                   if(file.exists() && file.canExecute()) {
 
                     Process process = Runtime.getRuntime().exec(parts);
-                    process.waitFor();
+                    
+                    process.getInputStream().transferTo(System.out);
                     
                     cmdExist = true;
                     continue;
