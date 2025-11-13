@@ -61,6 +61,8 @@ public class Main {
                     
                     cmdExist = true;
                     continue;
+                  } else {
+                    System.out.print(cmd + ": not found" + "\n");
                   }
                 }              
             }
