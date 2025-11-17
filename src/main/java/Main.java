@@ -1,6 +1,5 @@
 import java.util.Scanner;
 import java.io.File;
-import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.Files;
@@ -53,12 +52,10 @@ public class Main {
                   continue;                   
                 }
             }else if(parts[0].contains("pwd")) {
-              //String currentDir = System.getProperty("user.dir");
               System.out.println(currentDir.toAbsolutePath());
               continue;
             }else if (parts[0].contains("cd")){
               String path = parts[1];
-               //Path currentDir = Paths.get(System.getProperty("user.dir"));
                Path resolvedPath = currentDir.resolve(parts[1]);
                if (Files.isDirectory(resolvedPath)) {
                  currentDir = resolvedPath;
@@ -66,9 +63,7 @@ public class Main {
                 System.out.println("cd: " + path + ": No such file or directory");
                 continue;
               }
-            } 
-
-            else if(!input.isEmpty()){
+            }else if(!input.isEmpty()){
               String command_paths = System.getenv("PATH");
               String[] path_command = command_paths.split(":");
               String cmd = parts[0];
