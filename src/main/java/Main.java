@@ -1,9 +1,17 @@
 import java.util.Scanner;
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.Files;
+
 
 public class Main {
+
+  private static Path currentDir;
+  
   public static void main(String[] args) throws Exception {
-    
+    currentDir = Paths.get(System.getProperty("user.dir"));
     Scanner scanner = new Scanner(System.in);
 
     while (true)  {
@@ -45,11 +53,20 @@ public class Main {
                   continue;                   
                 }
             }else if(parts[0].contains("pwd")) {
-              String currentDir = System.getProperty("user.dir");
-              System.out.println(currentDir);
+              //String currentDir = System.getProperty("user.dir");
+              System.out.println(currentDir.toAbsolutePath());
               continue;
-            }
-            // TODO: cd goes here for cd builtin challenge 
+            }else if (parts[0].contains("cd")){
+              String path = parts[1];
+               //Path currentDir = Paths.get(System.getProperty("user.dir"));
+               Path resolvedPath = currentDir.resolve(parts[1]);
+               if (Files.isDirectory(resolvedPath)) {
+                 currentDir = resolvedPath;
+               }else {
+                System.out.println("cd: " + path + ": No such file or directory");
+                continue;
+              }
+            } 
 
             else if(!input.isEmpty()){
               String command_paths = System.getenv("PATH");
