@@ -56,6 +56,13 @@ public class Main {
               continue;
             }else if (parts[0].contains("cd")){
               String path = parts[1];
+              if(path.startsWith("./")){
+                String[] cleanPath = path.split("./");
+                String newPath = cleanPath[1];
+                System.out.println("NEW PATH: " +newPath);
+                // TODO: complete relative path components newPath = Users from ./Users  
+              }              
+              
                Path resolvedPath = currentDir.resolve(parts[1]);
                if (Files.isDirectory(resolvedPath)) {
                  currentDir = resolvedPath;
