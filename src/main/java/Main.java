@@ -59,8 +59,26 @@ public class Main {
               if(path.startsWith("./")){
                 String[] cleanPath = path.split("./");
                 String newPath = cleanPath[1];
-                System.out.println("NEW PATH: " +newPath);
-                // TODO: complete relative path components newPath = Users from ./Users  
+                // TODO: fix whenver user uses ./ a second time
+                // TODO: hadle ../../ when there is no more room to go up 
+                String curr = currentDir.toString();
+                String[] currlocation = curr.split("/");
+                String cl = currlocation[1];    
+                Path resolvedPath = currentDir.resolve("/"+cl+"/"+newPath);
+                System.out.println("ResolvedPath: "+ resolvedPath);
+                System.out.println("CurrentDir: " + currentDir);
+                
+                if (Files.isDirectory(resolvedPath)) {
+                  currentDir = resolvedPath;
+                  continue;
+                }  
+              }else if(path.contains("../../")) {
+              Path twoParentsUp = currentDir.getParent().getParent();
+              if (Files.isDirectory(twoParentsUp)) {
+                currentDir = twoParentsUp;
+                continue;
+              }
+                  
               }              
               
                Path resolvedPath = currentDir.resolve(parts[1]);
