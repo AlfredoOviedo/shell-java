@@ -3,7 +3,7 @@ import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.Files;
-
+import java.util.Arrays;
 
 public class Main {
 
@@ -57,13 +57,17 @@ public class Main {
             }else if (parts[0].contains("cd")){
               String path = parts[1];
               if(path.startsWith("./")){
-                String[] cleanPath = path.split("./");
-                String newPath = cleanPath[1];
-                // TODO: fix whenver user uses ./ a second time
+                String cleanPath = path.replaceFirst("\\./","");
+                System.out.println("CLEAN PATH: " + cleanPath);
+                String newPath = cleanPath;
+                System.out.println("NEW PATH: " + newPath);
                 // TODO: hadle ../../ when there is no more room to go up 
                 String curr = currentDir.toString();
+                System.out.println("CURR" + curr);
                 String[] currlocation = curr.split("/");
-                String cl = currlocation[1];    
+                System.out.println("Currlocation: " );
+                String cl = currlocation[1];
+                System.out.println("CL: "+ cl);    
                 Path resolvedPath = currentDir.resolve("/"+cl+"/"+newPath);
                 System.out.println("ResolvedPath: "+ resolvedPath);
                 System.out.println("CurrentDir: " + currentDir);
